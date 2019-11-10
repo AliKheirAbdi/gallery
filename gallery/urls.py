@@ -19,6 +19,8 @@ import photos.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^photos/', photos.views.ali, name='ali'),
+    url(r'^locations/', photos.views.locations, name='locations'),
+    url(r'^index/', photos.views.index, name='index'),
 
 ]
+
