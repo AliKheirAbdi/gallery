@@ -16,11 +16,14 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 import photos.views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^locations/', photos.views.locations, name='locations'),
     url(r'^index/', photos.views.index, name='index'),
-
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
