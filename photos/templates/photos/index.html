@@ -36,21 +36,16 @@
   <body>
 
 <main role="main">
-
-  <section class="jumbotron text-center">
-    <img class="container">
-      <h1>Welcome to Photo Shack</h1>
-      <p class="lead text-muted">..........</p>
-  </section>
+      <h1 style="text-align:center">Welcome to Photo Shack</h1>
   <div class="album py-5 bg-light">
     <div class="container">
       <div class="row">
             {% for image in images.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
+        <div class="col-md-3">
+          <div class="card mb-3 shadow-sm">
                  <!-- Image trigger modal -->
                 <img src="{{image.image.url}}" height="300vh" data-toggle="modal" data-target="#im{{image.id}}" class="card-img-top" alt="{{image.image_name}}">
-                <p class="card-text"> {{ image.image_name }}</p>
+                <p class="card-text" style="text-align:center; font-weight:bold"> {{ image.image_name }}</p>
                 <!-- Modal -->
                 <div class="modal fade" id="im{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
                     <div class="modal-dialog" role="document">

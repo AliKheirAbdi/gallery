@@ -1,1 +1,43 @@
-hello world
+{% extends 'base.html' %}
+{% block content %}
+{{ block.super }}
+<div class="container mt-3">
+    <div class="row">
+<div class="card-columns">
+    {%for image in images%}
+    <div class="card">
+        <!-- Image trigger modal -->
+        <img src="{{image.image.url}}" height="300vh" data-toggle="modal" data-target="#im{{image.id}}" class="card-img-top" alt="{{image.image_name}}">
+        <p class="text-muted">Category: ~{{image.category}}~<br>Location: ~{{image.img_location}}~</p>
+        <!-- Modal -->
+        <div class="modal fade" id="im{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <h5 class="modal-title text-center" id="exampleModal3Label">{{image.image_name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                <div class="modal-header">
+                    <img src="{{image.image.url}}"  class="card-img-top" alt="{{image.image_name}}">
+                </div>
+         <div class="modal-body">
+             <h5>{{image.image_description}}</h5>
+             <p class="text-muted">
+               Category: ~{{image.category}}~
+                <br>Location: ~{{image.img_location}}~</p>
+            <input type="text" id="input" value="{{image.image.url}}">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+        {% empty %}
+        {% endfor %}
+    </div>
+</div>
+</div>
+{% endblock %}
