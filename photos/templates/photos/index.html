@@ -32,9 +32,35 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
+      <nav class="navbar navbar-inverse bg-dark navbar-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/index">Photo Shack</a>
+      </div>
+
+       {% for location in locations%}
+      <a href="{% url 'display_location' location.id%}" class="drop-down">
+        <p>{{location.location}}</p>
+      </a>
+      {% endfor %}
+
+    <!-- add search bar-->
+    <div class="col-sm-4 col-md-4 navbar-right">
+        <div class=" form-inline">
+          <input type="text" class="form-control" placeholder="Search Category" name="category">&nbsp;
+          <div class="input-group">
+            <button class="btn btn-default" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+      <!--end of search form-->
+    </div>
+  </div>
+</nav>
   </head>
   <body>
-
 <main role="main">
       <h1 style="text-align:center">Welcome to Photo Shack</h1>
   <div class="album py-5 bg-light">
@@ -44,7 +70,7 @@
         <div class="col-md-3">
           <div class="card mb-3 shadow-sm">
                  <!-- Image trigger modal -->
-                <img src="{{image.image.url}}" height="300vh" data-toggle="modal" data-target="#im{{image.id}}" class="card-img-top" alt="{{image.image_name}}">
+                <img src="{{image.image.url}}" height="200px" data-toggle="modal" data-target="#im{{image.id}}" class="card-img-top" alt="{{image.image_name}}">
                 <p class="card-text" style="text-align:center; font-weight:bold"> {{ image.image_name }}</p>
                 <!-- Modal -->
                 <div class="modal fade" id="im{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModal3Label" aria-hidden="true">
@@ -62,7 +88,9 @@
                              <p class="text-muted">
                                Category: ~{{image.category}}~
                                 <br>Location: ~{{image.img_location}}~</p>
-                            <input type="text" id="input" value="{{image.image.url}}">
+                                <input type="text" value="{{image.image.url}}" id="myInput">
+                                <!-- The button used to copy the text -->
+                                <button onclick="myFunction()">Copy text</button>
                         </div>
                      </div>
                    </div>
