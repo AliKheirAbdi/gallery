@@ -7,5 +7,5 @@ def locations(request):
 
 
 def index(request):
-    images = Image.objects
+    images = Image.objects.all()
     return render(request, 'photos/index.html', {'images':images})
