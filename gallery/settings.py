@@ -81,7 +81,6 @@ DATABASES = {
         'NAME': 'gallerydb',
         'USER': 'postgres',
         'PASSWORD': 'gallery',
-        'USER': 'localhost',
         'PORT': '5432',
     }
 }
