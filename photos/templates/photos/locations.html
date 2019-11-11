@@ -4,7 +4,7 @@
 <div class="container mt-3">
     <div class="row">
 <div class="card-columns">
-    {%for image in images%}
+    {% for image in images %}
     <div class="card">
         <!-- Image trigger modal -->
         <img src="{{image.image.url}}" height="300vh" data-toggle="modal" data-target="#im{{image.id}}" class="card-img-top" alt="{{image.image_name}}">

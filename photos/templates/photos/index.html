@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-{% load static %}
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,20 +32,20 @@
     </style>
     <!-- Custom styles for this template -->
     <link href="album.css" rel="stylesheet">
-      <nav class="navbar navbar-inverse bg-dark navbar-dark">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="">Photo Shack</a>
-      </div>
+  <nav class="navbar navbar-inverse bg-dark navbar-dark">
+    <div class="container-fluid">
+       <div class="navbar-header">
+         <a class="navbar-brand" href="">Photo Shack</a>
+        </div>
 
-       {% for location in locations%}
-      <a href="{% url 'display_location' location.id%}" class="drop-down">
-        <p>{{location.location}}</p>
-      </a>
-      {% endfor %}
+        {% for location in locations%}
+        <a href="{% url 'display_location' location.id%}" class="drop-down">
+          <p>{{location.location}}</p>
+        </a>
+        {% endfor %}
 
-    <!-- add search bar-->
-    <div class="col-sm-4 col-md-4 navbar-right">
+      <!-- add search bar-->
+      <div class="col-sm-4 col-md-4 navbar-right">
         <div class=" form-inline">
           <input type="text" class="form-control" placeholder="Search Category" name="category">&nbsp;
           <div class="input-group">
